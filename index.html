@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A secret message from Toi Tali to Nanang Tatak." />
+  <title>For Nanang Tatak, With Love</title>
+  <style>
+    :root { --rose:#b83b5e; --dark:#7c2442; --cream:#fffaf7; --text:#402733; --muted:#856572; }
+    * { box-sizing:border-box; }
+    body {
+      min-height:100vh; margin:0; display:grid; place-items:center; padding:20px;
+      color:var(--text); font-family:Arial,sans-serif;
+      background:radial-gradient(circle at 15% 15%,#ffd9e2,transparent 30%),radial-gradient(circle at 85% 85%,#ffe4c3,transparent 30%),#f5dce2;
+    }
+    .card { position:relative; width:min(100%,560px); padding:42px 28px 28px; overflow:hidden; text-align:center; border:1px solid white; border-radius:28px; background:rgba(255,250,247,.95); box-shadow:0 24px 65px rgba(108,38,64,.2); }
+    .eyebrow { margin:0 0 8px; color:var(--rose); font-size:.78rem; font-weight:bold; letter-spacing:.18em; text-transform:uppercase; }
+    h1,h2 { margin:0; color:var(--dark); font-family:Georgia,serif; }
+    h1 { font-size:clamp(2.2rem,9vw,4rem); line-height:1.05; }
+    h2 { font-size:clamp(2rem,8vw,3rem); }
+    .person-photo { display:block; width:min(100%,360px); height:300px; margin:26px auto 20px; object-fit:cover; border:8px solid white; border-radius:22px; box-shadow:0 12px 28px rgba(108,38,64,.16); transform:rotate(-2deg); }
+    .hint { margin:25px 0 16px; color:var(--muted); }
+    button { cursor:pointer; border:0; border-radius:999px; padding:14px 24px; color:white; background:linear-gradient(135deg,var(--rose),var(--dark)); font:inherit; font-weight:bold; box-shadow:0 10px 22px rgba(184,59,94,.3); transition:transform .18s ease; }
+    button:hover { transform:translateY(-2px); } button:disabled { cursor:default; opacity:.85; }
+    .message { margin-top:28px; padding:25px 20px; border:1px solid #e9b9c6; border-radius:22px; background:#ffedf2; animation:appear .55s ease both; }
+    .heart { margin:0 0 5px; color:var(--rose); font-size:3rem; }
+    .message-text { max-width:38ch; margin:15px auto; line-height:1.7; }
+    .signature { color:var(--rose); font-family:Georgia,serif; font-size:1.2rem; font-style:italic; }
+    .love-video { display:block; width:100%; max-height:430px; margin:22px auto 8px; border-radius:16px; background:#321b25; box-shadow:0 8px 20px rgba(108,38,64,.2); }
+    .video-note { color:var(--muted); font-size:.86rem; }
+    .footer { margin:28px 0 0; color:#aa7d89; font-size:.78rem; }
+    .floating-heart { position:absolute; color:rgba(184,59,94,.14); font-size:4rem; pointer-events:none; }
+    .heart-one { top:18px; left:20px; transform:rotate(-18deg); } .heart-two { top:105px; right:18px; font-size:2.5rem; transform:rotate(18deg); }
+    @keyframes appear { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+    @media (max-width:480px) { body { padding:10px; } .card { padding:36px 20px 24px; border-radius:22px; } .person-photo { height:250px; } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="floating-heart heart-one" aria-hidden="true">♥</div>
+    <div class="floating-heart heart-two" aria-hidden="true">♥</div>
+
+    <p class="eyebrow">A secret message for</p>
+    <h1>Nanang Tatak</h1>
+
+    <img class="person-photo" src="nanang-tatak.jpeg" alt="Nanang Tatak" />
+
+    <p class="hint">You found my secret page.</p>
+    <button id="revealButton" type="button">Open my heart</button>
+
+    <section id="message" class="message" hidden>
+      <p class="heart" aria-hidden="true">♥</p>
+      <h2>I love you.</h2>
+      <p class="message-text">
+        Nanang Tatak, you are very special to me. Every time I think of you,
+        my heart feels happy. I hope this little surprise makes you smile.
+        With love, always.
+      </p>
+      <p class="signature">With love,<br />Toi Tali</p>
+
+      <video class="love-video" controls playsinline preload="metadata">
+        <source src="love-video.mp4" type="video/mp4" />
+        Your browser does not support video playback.
+      </video>
+      <p class="video-note">Press play to watch the special video.</p>
+    </section>
+
+    <p class="footer">Made with love by Toi Tali · Scan again whenever you miss me</p>
+  </main>
+
+  <script>
+    const button = document.getElementById('revealButton');
+    const message = document.getElementById('message');
+    button.addEventListener('click', () => {
+      message.hidden = false;
+      button.textContent = 'My heart is yours ♥';
+      button.disabled = true;
+    });
+  </script>
+</body>
+</html>
